@@ -1,62 +1,17 @@
 import java.util.Date;
-
 public class Produit {
-    public int id;
-    public String libelle;
-    public String marque;
-    public double prix;
-    private Date dateExpiration;
+    int identifiant;
+    String libelle;
+    String marque;
+    float prix;
+    Date dateExpiration;
 
-    public Produit() {
-        this.id = 0;
-        this.libelle = "";
-        this.marque = "";
-        this.prix = 0;
-        this.dateExpiration = null;
-
+    public int getIdentifiant() {
+        return identifiant;
     }
 
-    public Produit(int id, String libelle, String marque, double prix, Date dateExpiration) {
-        this.id = id;
-        this.libelle = libelle;
-        this.marque = marque;
-        this.prix = prix;
-        this.dateExpiration = dateExpiration;
-
-    }
-
-    ;
-
-    public Date getDateExpiration() {
-        return dateExpiration;
-    }
-
-    public void setDateExpiration(Date dateExpiration) {
-        this.dateExpiration = dateExpiration;
-    }
-
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getMarque() {
-        return marque;
-    }
-
-    public void setMarque(String marque) {
-        this.marque = marque;
+    public void setIdentifiant(int identifiant) {
+        this.identifiant = identifiant;
     }
 
     public String getLibelle() {
@@ -67,23 +22,51 @@ public class Produit {
         this.libelle = libelle;
     }
 
+    public String getMarque() {
+        return marque;
+    }
+
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public float getPrix() {
+        return prix;
+    }
+
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+
+    public Date getDateExpiration() {
+        return dateExpiration;
+    }
+
+    public void setDateExpiration(Date dateExpiration) {
+        this.dateExpiration = dateExpiration;
+    }
+
+    public Produit() {
+    }
+
+    public Produit(int identifiant, String libelle, String marque, float prix) {
+        this.identifiant = identifiant;
+        this.libelle = libelle;
+        this.marque = marque;
+        this.prix = prix;
+    }
     public void afficher() {
-        System.out.println("Produit ID: " + id);
+        System.out.println("Produit ID: " + identifiant);
         System.out.println("Libellé: " + libelle);
         System.out.println("Marque: " + marque);
-        System.out.println("Prix: " + prix + " DT");
-        if (dateExpiration != null) {
-            System.out.println("Date d'expiration: " + dateExpiration);
-        } else {
-            System.out.println("Date d'expiration: non définie");
-        }
-        System.out.println("--------------------------");
+        System.out.println("Prix: " + prix);
     }
+
 
     @Override
     public String toString() {
-        return "ProduitAlimentaire{" +
-                "id=" + id +
+        return "Produit{" +
+                "identifiant=" + identifiant +
                 ", libelle='" + libelle + '\'' +
                 ", marque='" + marque + '\'' +
                 ", prix=" + prix +

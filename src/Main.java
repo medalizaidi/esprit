@@ -2,35 +2,59 @@ import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        Produit produitVide = new Produit();
-        System.out.println("Produit vide: " + produitVide);
+/*Produit produitVide =new Produit();
+            System.out.println("Produit vide créé: " + produitVide);
 
-        Produit lait = new Produit(1021, "Lait", "Delice", 0.700, null);
-        Produit yaourt = new Produit(2510, "Yaourt", "Vitalait", 0.500, null);
-        Produit tomate = new Produit(3250, "Tomate", "Sicam", 1.200, null);
+Produit p1 =new Produit(1021,"lait","delice",13);
+        Produit p2 =new Produit(2510,"yaourt","vitalait",0);
+        Produit p3=new Produit(3250,"tomate","sicam",1200);
+        System.out.println("\nProduits créés:");
+        p1.afficher();
+        p2.afficher();
+        p3.afficher();
 
-        Produit beurre = new Produit(1234, "Beurre", "Président", 2.500, null);
+        p1.prix = 700;
+        System.out.println("Produit lait après modification:");
+        p1.afficher();
 
-        Date dateExpirationLait = new Date(2024 - 1900, 11 - 1, 20);  // 20 novembre 2024
-        Date dateExpirationYaourt = new Date(2024 - 1900, 10 - 1, 10);  // 10 octobre 2024
-        Date dateExpirationTomate = new Date(2025 - 1900, 3 - 1, 15);   // 15 mars 2025
-        Date dateExpirationBeurre = new Date(2024 - 1900, 12 - 1, 1);   // 1er décembre 2024
+        p2.prix = 500;
+        p3.prix=900;
 
-        lait.setDateExpiration(dateExpirationLait);
-        yaourt.setDateExpiration(dateExpirationYaourt);
-        tomate.setDateExpiration(dateExpirationTomate);
-        beurre.setDateExpiration(dateExpirationBeurre);
+        System.out.println("\nProduits modifiés:");
+        p1.afficher();
+        p2.afficher();
+        p3.afficher();
 
-        System.out.println("Produits avec les dates d'expiration modifiées:");
-        lait.afficher();
-        yaourt.afficher();
-        tomate.afficher();
-        beurre.afficher();
+        System.out.println("\nProduits avec toString():");
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println(p3);
 
-        System.out.println("\nAffichage des produits avec toString():");
-        System.out.println(lait);
-        System.out.println(yaourt);
-        System.out.println(tomate);
-        System.out.println(beurre);
+        // 8. Ajouter la date d'expiration
+        Date dateExpLait = new Date(2024, 9, 20);
+        Date dateExpYaourt = new Date(2024, 10, 15);
+        Date dateExpTomate = new Date(2025, 3, 10);
+
+        p1.dateExpiration = dateExpLait;
+        p2.dateExpiration = dateExpYaourt;
+        p3.dateExpiration = dateExpTomate;
+
+        // Afficher à nouveau les produits avec les dates d'expiration
+        System.out.println("\nProduits avec date d'expiration:");
+        p1.afficher();
+        p2.afficher();
+        p3.afficher();*/
+        Magasin magasin1 = new Magasin("M1", "123 Rue A", 50);
+        magasin1.ajouterProduit(new Produit(1,"car","car",20));
+        magasin1.ajouterProduit(new Produit(2,"kinder","chocloate",50));
+
+        Magasin magasin2 = new Magasin("M2", "456 Rue B", 50);
+        magasin2.ajouterProduit(new Produit(6,"chargeur","chargeur",90));
+
+        magasin1.afficherDetails();
+        magasin2.afficherDetails();
+
+        System.out.println("Total de produits  " + Magasin.getTotalProduits());
     }
+
 }
