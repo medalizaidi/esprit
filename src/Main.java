@@ -62,7 +62,11 @@ Produit p1 =new Produit(1021,"lait","delice",13);
         Magasin magasin1 = new Magasin("M1", "123 Rue A", 50);
         magasin1.ajouterProduit(new Produit(1, "car", "car", 20));
         magasin1.ajouterProduit(new Produit(2, "kinder", "chocolat", 50));
+        Produit p1 = new Produit(1, "car", "car", 20);
+        Produit p2 = new Produit(2, "kinder", "chocolat", 50);
 
+        magasin1.ajouterProduit(p1);
+        magasin1.ajouterProduit(p2);
         // Attempt to add a product with null libelle to check error handling
         Produit produitNullLibelle = new Produit(3, null, "marque", 30);
         magasin1.ajouterProduit(produitNullLibelle); // This should now handle the null case.
@@ -80,5 +84,13 @@ Produit p1 =new Produit(1021,"lait","delice",13);
 
         Magasin magasinAvecPlusDeProduits = Magasin.comparerMagasins(magasin1, magasin2);
         System.out.println("Magasin avec plus de produits: " + magasinAvecPlusDeProduits);
+
+        magasin1.supprimer(p1);
+        magasin1.supprimer(p2);
+
+
+
+        // Display products after deletion
+        magasin1.afficherDetails();
     }
 }
