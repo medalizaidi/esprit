@@ -57,40 +57,66 @@ Produit p1 =new Produit(1021,"lait","delice",13);
         System.out.println("Total de produits  " + Magasin.getTotalProduits());
     }
 
-}*/public class Main {
+}*/ import java.util.Date;
+
+public class Main {
     public static void main(String[] args) {
-        Magasin magasin1 = new Magasin("M1", "123 Rue A", 50);
-        magasin1.ajouterProduit(new Produit(1, "car", "car", 20));
-        magasin1.ajouterProduit(new Produit(2, "kinder", "chocolat", 50));
-        Produit p1 = new Produit(1, "car", "car", 20);
-        Produit p2 = new Produit(2, "kinder", "chocolat", 50);
+        // Créer deux magasins
+        Magasin carrefour = new Magasin("1", "Centre-Ville", 50);
+        Magasin monoprix = new Magasin("2", "Menzah 6", 50);
 
-        magasin1.ajouterProduit(p1);
-        magasin1.ajouterProduit(p2);
-        // Attempt to add a product with null libelle to check error handling
-        Produit produitNullLibelle = new Produit(3, null, "marque", 30);
-        magasin1.ajouterProduit(produitNullLibelle); // This should now handle the null case.
+        // Créer des employés pour le premier magasin (Carrefour)
+        Caissier caissier1 = new Caissier(101, "Ali", "Tunis", 180, 1);
+        Caissier caissier2 = new Caissier(102, "Sara", "Tunis", 170, 2);
+        Vendeur vendeur1 = new Vendeur(103, "Omar", "Tunis", 160, 80); // taux de vente 80%
+        Responsable responsable1 = new Responsable(104, "Fatma", "Tunis", 170, 500); // prime 500 DT
 
-        Magasin magasin2 = new Magasin("M2", "456 Rue B", 50);
-        magasin2.ajouterProduit(new Produit(6, "chargeur", "chargeur", 90));
+        // Ajouter des employés au premier magasin
+        carrefour.ajouterEmploye(caissier1);
+        carrefour.ajouterEmploye(caissier2);
+        carrefour.ajouterEmploye(vendeur1);
+        carrefour.ajouterEmploye(responsable1);
 
-        magasin1.afficherDetails();
-        magasin2.afficherDetails();
+        // Créer des employés pour le deuxième magasin (Monoprix)
+        Caissier caissier3 = new Caissier(201, "Aymen", "Ariana", 190, 3);
+        Vendeur vendeur2 = new Vendeur(202, "Salma", "Ariana", 160, 60); // taux de vente 60%
+        Vendeur vendeur3 = new Vendeur(203, "Mounir", "Ariana", 150, 70); // taux de vente 70%
+        Vendeur vendeur4 = new Vendeur(204, "Leila", "Ariana", 140, 50); // taux de vente 50%
+        Responsable responsable2 = new Responsable(205, "Hedi", "Ariana", 180, 600); // prime 600 DT
 
-        System.out.println("Total de produits: " + Magasin.getTotalProduits());
+        // Ajouter des employés au deuxième magasin
+        monoprix.ajouterEmploye(caissier3);
+        monoprix.ajouterEmploye(vendeur2);
+        monoprix.ajouterEmploye(vendeur3);
+        monoprix.ajouterEmploye(vendeur4);
+        monoprix.ajouterEmploye(responsable2);
 
-        Produit produitTest = new Produit(1, "car", "car", 20);
-        System.out.println("Produit trouvé dans magasin1? " + magasin1.chercherProduit(produitTest));
+        // Ajouter des produits pour les magasins
+        carrefour.ajouterProduit(new Produit(5, "Ordinateur", "Électronique", 800));
+        carrefour.ajouterProduit(new Produit(7, "Stylo", "Papeterie", 2));
 
-        Magasin magasinAvecPlusDeProduits = Magasin.comparerMagasins(magasin1, magasin2);
-        System.out.println("Magasin avec plus de produits: " + magasinAvecPlusDeProduits);
+        monoprix.ajouterProduit(new Produit(3, "Bouteille", "Eau", 10));
+        monoprix.ajouterProduit(new Produit(4, "Pomme", "Fruits", 5));
 
-        magasin1.supprimer(p1);
-        magasin1.supprimer(p2);
+        // Afficher les détails des magasins avec les employés et produits
+        System.out.println("=== Détails du magasin Carrefour ===");
+        carrefour.afficherMagasin();
 
+        System.out.println("\n=== Détails du magasin Monoprix ===");
+        monoprix.afficherMagasin();
 
+        // Calculer et afficher les salaires des employés
+        System.out.println("\n=== Salaires des employés Carrefour ===");
+        carrefour.calculerEtAfficherSalaires();
 
-        // Display products after deletion
-        magasin1.afficherDetails();
+        System.out.println("\n=== Salaires des employés Monoprix ===");
+        monoprix.calculerEtAfficherSalaires();
+
+        // Afficher les primes des responsables dans chaque magasin
+        System.out.println("\n=== Primes des responsables Carrefour ===");
+        carrefour.afficherPrimesResponsables();
+
+        System.out.println("\n=== Primes des responsables Monoprix ===");
+        monoprix.afficherPrimesResponsables();
     }
 }
